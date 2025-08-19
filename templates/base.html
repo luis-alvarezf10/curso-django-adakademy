@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar Red Social</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f3f3f3;
+    }
+
+    nav {
+        background-color: #1877f2; /* Azul estilo Facebook */
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #dcdcdc;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    .search-bar input {
+        border: none;
+        outline: none;
+        padding: 5px;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+    .profile img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">MiRed</div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar...">
+    </div>
+
+    <div class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Mensajes</a>
+        <a href="#">Notificaciones</a>
+        <a href="#">Amigos</a>
+    </div>
+
+    <div class="profile">
+        <img src="https://via.placeholder.com/35" alt="Perfil">
+        <span>Mi Usuario</span>
+    </div>
+</nav>
+ {% block content %}
+ {% endlock %}
+</body>
+</html>
