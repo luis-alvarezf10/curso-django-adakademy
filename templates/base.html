@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Moderno - Red Social</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. Variables y Reseteo Global --- */
+        :root {
+            --primary-accent: #7c3aed; /* Un morado vibrante */
+            --primary-light: #a78bfa;
+            --dark-color: #1f2937;
+            --light-text: #f9fafb;
+            --grey-text: #d1d5db;
+            --surface-bg: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            --backdrop-blur: blur(10px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--light-text);
+            overflow-x: hidden; /* Previene scroll horizontal */
+        }
+
+        /* --- 2. Contenedor Principal del Header --- */
+        .hero-header {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            
+            /* Fondo con degradado y imagen */
+            background: linear-gradient(rgba(20, 20, 30, 0.7), rgba(40, 30, 60, 0.9)), url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+        }
+
+        /* --- 3. Barra de Navegación --- */
+        .main-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            /* Estilo "Glassmorphism" para la barra */
+            background: var(--surface-bg);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--grey-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-text);
+        }
+
+        .login-btn {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 1px solid var(--light-text);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: var(--light-text);
+            color: var(--dark-color);
+        }
+
+        /* --- 4. Contenido Central del Header --- */
+        .header-content {
+            max-width: 800px;
+        }
+
+        .header-content h1 {
+            font-size: 4rem; /* Tamaño grande para impacto */
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .header-content h1 span {
+            color: var(--primary-light);
+        }
+
+        .header-content p {
+            font-size: 1.25rem;
+            color: var(--grey-text);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-primary {
+            background-color: var(--primary-accent);
+            color: var(--light-text);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+        
+        .cta-secondary {
+            background-color: var(--surface-bg);
+            color: var(--light-text);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-secondary:hover {
+             transform: translateY(-3px);
+             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- 5. Responsividad --- */
+        .menu-toggle {
+            display: none; /* Oculto en escritorio */
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none; /* Ocultar links en móvil */
+            }
+
+            .menu-toggle {
+                display: block; /* Mostrar ícono de menú */
+            }
+
+            .header-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .header-content p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">ConnectU</a>
+                
+                <div class="nav-links">
+                    <a href="#">Descubrir</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contacto</a>
+                    <button class="login-btn">Iniciar Sesión</button>
+                </div>
+                
+                <button class="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </nav>
+
+        <div class="header-content">
+            <h1>Conecta y comparte <span>momentos únicos.</span></h1>
+            <p>Únete a la comunidad donde tus historias cobran vida. Descubre, comparte y conecta con personas de todo el mundo.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-primary">Crear Cuenta</a>
+                <a href="#" class="cta-secondary">Saber Más</a>
+            </div>
+        </div>
+
+    </header>
+
+    <main style="padding: 50px; text-align: center; color: black;">
+        <h2>Contenido Principal de la Página</h2>
+        <p>El resto de la red social iría aquí debajo.</p>
+    </main>
+
+    {%block content%}
+
+    {% endblock%}
+</body>
+</html>
