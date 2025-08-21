@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    home
+    {% for post in object_list %}
+         <ul style="text-align: center; display:grid">
+             <span> 
+                <strong>
+                 {{ post.user}}
+                </strong>
+            </span>
+             <span> {{ post.description}}</span>
+         </ul>
+         <hr>
+    {% endfor %}
 {% endblock %}
