@@ -4,6 +4,6 @@ from django.views.generic import ListView
 
 # Create your views here.
 
-class PostView():
+class PostView(ListView):
     model = Post
-    template_name = 'blog.html'
+    template_name = 'home.html'
