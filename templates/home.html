@@ -1,6 +1,151 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Red Social - Inicio</title>
+    <style>
+        /* Estilos CSS básicos para que se vea decente */
+        body {
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1877f2;
+            font-weight: bold;
+        }
+        .nueva-publicacion, .publicacion {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .publicacion img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .publicacion-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .publicacion-header .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .publicacion-header .usuario {
+            font-weight: bold;
+        }
+        .comentarios {
+            margin-top: 15px;
+        }
+        .comentario {
+            margin-bottom: 5px;
+        }
+        .comentario .usuario {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
 
-{% block content %}
+    <header>
+        <h1>Mi Red Social</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Explorar</a></li>
+                <li><a href="#">Notificaciones</a></li>
+            </ul>
+        </nav>
+    </header>
 
-{% endblock%}
+    <div class="contenedor">
 
+        <section class="nueva-publicacion">
+            <h2>Crear nueva publicación</h2>
+            <form action="#">
+                <textarea rows="4" placeholder="¿Qué estás pensando?" style="width: 100%;"></textarea>
+                <input type="file" accept="image/*">
+                <button type="submit">Publicar</button>
+            </form>
+        </section>
+
+        <section class="feed">
+
+            <article class="publicacion">
+                <div class="publicacion-header">
+                    <img src="https://via.placeholder.com/40" alt="Avatar de usuario" class="avatar">
+                    <div>
+                        <span class="usuario">UsuarioEjemplo1</span>
+                        <br>
+                        <small>Hace 5 minutos</small>
+                    </div>
+                </div>
+                <img src="https://via.placeholder.com/600x400" alt="Una foto de ejemplo">
+                <p>¡Hola a todos! Compartiendo una foto de mi última aventura. 😊 #Viaje #Naturaleza</p>
+                
+                <div class="comentarios">
+                    <div class="comentario">
+                        <span class="usuario">Amigo1:</span> ¡Qué buena foto!
+                    </div>
+                    <div class="comentario">
+                        <span class="usuario">Amiga2:</span> Me encanta el lugar, ¡es hermoso!
+                    </div>
+                </div>
+            </article>
+
+            <article class="publicacion">
+                <div class="publicacion-header">
+                    <img src="https://via.placeholder.com/40" alt="Avatar de usuario" class="avatar">
+                    <div>
+                        <span class="usuario">UsuarioEjemplo2</span>
+                        <br>
+                        <small>Hace 1 hora</small>
+                    </div>
+                </div>
+                <img src="https://via.placeholder.com/600x400" alt="Una foto de comida">
+                <p>Preparando una deliciosa cena. ¿Quién quiere un poco? #Comida #Recetas</p>
+                
+                <div class="comentarios">
+                    <div class="comentario">
+                        <span class="usuario">Amigo3:</span> ¡Se ve increíble!
+                    </div>
+                </div>
+            </article>
+
+            </section>
+
+    </div>
+
+</body>
+</html>
