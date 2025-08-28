@@ -3,149 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Red Social - Inicio</title>
+    <title>Header de Red Social</title>
     <style>
-        /* Estilos CSS básicos para que se vea decente */
+        /* Estilos generales */
         body {
-            font-family: sans-serif;
-            background-color: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            padding: 0;
+            background-color: #f0f2f5;
         }
-        .contenedor {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        header {
+
+        /* Estilos del header */
+        .header {
             background-color: #ffffff;
-            padding: 15px;
-            text-align: center;
             border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        nav li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #1877f2;
+
+        .logo a {
+            font-size: 24px;
             font-weight: bold;
+            color: #1877f2;
+            text-decoration: none;
         }
-        .nueva-publicacion, .publicacion {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
+
+        /* Estilos para la barra de búsqueda */
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            display: flex;
+            justify-content: center;
         }
-        .publicacion img {
+
+        .search-bar input {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            max-width: 400px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background-color: #f0f2f5;
+            font-size: 16px;
+            outline: none;
         }
-        .publicacion-header {
+
+        /* Estilos de la navegación */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link a {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            flex-direction: column;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
-        .publicacion-header .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
+
+        .nav-link a:hover {
+            color: #1877f2;
         }
-        .publicacion-header .usuario {
-            font-weight: bold;
-        }
-        .comentarios {
-            margin-top: 15px;
-        }
-        .comentario {
+        
+        /* Estilos para los íconos (puedes usar Font Awesome) */
+        .icon {
+            font-size: 22px;
             margin-bottom: 5px;
         }
-        .comentario .usuario {
-            font-weight: bold;
+
+        /* Ejemplo de íconos con caracteres especiales */
+        .icon-home::before { content: "🏠"; }
+        .icon-profile::before { content: "👤"; }
+        .icon-messages::before { content: "💬"; }
+
+        /* Media queries para responsividad */
+        @media (max-width: 600px) {
+            .header-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .logo, .nav-links {
+                flex-basis: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .search-bar {
+                order: 3;
+                width: 100%;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Mi Red Social</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Perfil</a></li>
-                <li><a href="#">Explorar</a></li>
-                <li><a href="#">Notificaciones</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">Mi Red Social</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar en la red social...">
+            </div>
+            <nav class="nav-links">
+                <div class="nav-link">
+                    <a href="#">
+                        <span class="icon icon-home"></span>
+                        Inicio
+                    </a>
+                </div>
+                <div class="nav-link">
+                    <a href="#">
+                        <span class="icon icon-profile"></span>
+                        Perfil
+                    </a>
+                </div>
+                <div class="nav-link">
+                    <a href="#">
+                        <span class="icon icon-messages"></span>
+                        Mensajes
+                    </a>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <div class="contenedor">
+ 
 
-        <section class="nueva-publicacion">
-            <h2>Crear nueva publicación</h2>
-            <form action="#">
-                <textarea rows="4" placeholder="¿Qué estás pensando?" style="width: 100%;"></textarea>
-                <input type="file" accept="image/*">
-                <button type="submit">Publicar</button>
-            </form>
-        </section>
-
-        <section class="feed">
-
-            <article class="publicacion">
-                <div class="publicacion-header">
-                    <img src="https://via.placeholder.com/40" alt="Avatar de usuario" class="avatar">
-                    <div>
-                        <span class="usuario">UsuarioEjemplo1</span>
-                        <br>
-                        <small>Hace 5 minutos</small>
-                    </div>
-                </div>
-                <img src="https://via.placeholder.com/600x400" alt="Una foto de ejemplo">
-                <p>¡Hola a todos! Compartiendo una foto de mi última aventura. 😊 #Viaje #Naturaleza</p>
-                
-                <div class="comentarios">
-                    <div class="comentario">
-                        <span class="usuario">Amigo1:</span> ¡Qué buena foto!
-                    </div>
-                    <div class="comentario">
-                        <span class="usuario">Amiga2:</span> Me encanta el lugar, ¡es hermoso!
-                    </div>
-                </div>
-            </article>
-
-            <article class="publicacion">
-                <div class="publicacion-header">
-                    <img src="https://via.placeholder.com/40" alt="Avatar de usuario" class="avatar">
-                    <div>
-                        <span class="usuario">UsuarioEjemplo2</span>
-                        <br>
-                        <small>Hace 1 hora</small>
-                    </div>
-                </div>
-                <img src="https://via.placeholder.com/600x400" alt="Una foto de comida">
-                <p>Preparando una deliciosa cena. ¿Quién quiere un poco? #Comida #Recetas</p>
-                
-                <div class="comentarios">
-                    <div class="comentario">
-                        <span class="usuario">Amigo3:</span> ¡Se ve increíble!
-                    </div>
-                </div>
-            </article>
-
-            </section>
-
-    </div>
+    {% block content %}
+    {% endblock %}
 
 </body>
 </html>
