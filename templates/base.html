@@ -1,149 +1,64 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="bg-gray-100 dark:bg-gray-900">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header de Red Social</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
-
-        /* Estilos del header */
-        .header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo a {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1877f2;
-            text-decoration: none;
-        }
-
-        /* Estilos para la barra de búsqueda */
-        .search-bar {
-            flex-grow: 1;
-            margin: 0 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-bar input {
-            width: 100%;
-            max-width: 400px;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 20px;
-            background-color: #f0f2f5;
-            font-size: 16px;
-            outline: none;
-        }
-
-        /* Estilos de la navegación */
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link a {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            text-decoration: none;
-            color: #555;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link a:hover {
-            color: #1877f2;
-        }
-        
-        /* Estilos para los íconos (puedes usar Font Awesome) */
-        .icon {
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        /* Ejemplo de íconos con caracteres especiales */
-        .icon-home::before { content: "🏠"; }
-        .icon-profile::before { content: "👤"; }
-        .icon-messages::before { content: "💬"; }
-
-        /* Media queries para responsividad */
-        @media (max-width: 600px) {
-            .header-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .logo, .nav-links {
-                flex-basis: 100%;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-            .search-bar {
-                order: 3;
-                width: 100%;
-                margin: 10px 0;
-            }
-        }
-    </style>
+    <title>{% block title %}Mi Red Social{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="font-sans text-gray-900 dark:text-gray-100">
 
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+            
+            <!-- Logo -->
+            <div class="text-xl font-extrabold text-blue-600 dark:text-blue-400">
                 <a href="#">Mi Red Social</a>
             </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar en la red social...">
+
+            <!-- Barra de búsqueda -->
+            <div class="hidden sm:flex flex-1 justify-center px-4">
+                <input 
+                    type="text" 
+                    placeholder="Buscar en la red social..." 
+                    class="w-full max-w-md px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
             </div>
-            <nav class="nav-links">
-                <div class="nav-link">
-                    <a href="#">
-                        <span class="icon icon-home"></span>
-                        Inicio
-                    </a>
-                </div>
-                <div class="nav-link">
-                    <a href="#">
-                        <span class="icon icon-profile"></span>
-                        Perfil
-                    </a>
-                </div>
-                <div class="nav-link">
-                    <a href="#">
-                        <span class="icon icon-messages"></span>
-                        Mensajes
-                    </a>
-                </div>
+
+            <!-- Navegación -->
+            <nav class="flex items-center gap-6 text-sm">
+                <a href="#" class="flex flex-col items-center hover:text-blue-500 transition">
+                    <i class="fa-solid fa-house text-2xl"></i>
+                    <span class="hidden sm:block">Inicio</span>
+                </a>
+                <a href="#" class="flex flex-col items-center hover:text-blue-500 transition">
+                    <i class="fa-solid fa-user text-2xl"></i>
+                    <span class="hidden sm:block">Perfil</span>
+                </a>
+                <a href="#" class="flex flex-col items-center hover:text-blue-500 transition">
+                    <i class="fa-solid fa-message text-2xl"></i>
+                    <span class="hidden sm:block">Mensajes</span>
+                </a>
             </nav>
+        </div>
+
+        <!-- Barra de búsqueda en móviles -->
+        <div class="sm:hidden px-4 pb-3">
+            <input 
+                type="text" 
+                placeholder="Buscar..." 
+                class="w-full px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
         </div>
     </header>
 
- 
-
-    {% block content %}
-    {% endblock %}
+    <!-- Contenido dinámico -->
+    <main class="max-w-3xl mx-auto p-4">
+        {% block content %}
+        {% endblock %}
+    </main>
 
 </body>
 </html>
