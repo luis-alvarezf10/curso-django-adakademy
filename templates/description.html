@@ -1,42 +1,53 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<div class="max-w-2xl mx-auto mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md transition">
-    
-    <!-- Usuario -->
-    <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
-            {{ post.user.username|first|upper }}
-        </div>
-        <div>
-            <p class="font-semibold text-gray-900 dark:text-gray-100">{{ post.user.username }}</p>
-            <p class="text-gray-500 text-sm">{{ post.created_at|timesince }} atrás</p>
-        </div>
+{% extends 'base.html' %} {% block content %}
+<div
+  class="max-w-2xl mx-auto mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md transition"
+>
+  <!-- Usuario -->
+  <div class="flex items-center gap-3 mb-4">
+    <div
+      class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-lg"
+    >
+      {{ post.user.username|first|upper }}
     </div>
-
-    <!-- Título y descripción -->
-    <h1 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">{{ post.title }}</h1>
-    <p class="text-gray-700 dark:text-gray-300 mb-4">{{ post.description }}</p>
-
-    <!-- Imagen -->
-    {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full rounded-lg mb-4 object-cover">
-    {% else %}
-        <p class="text-gray-400 italic text-sm">No hay imagen disponible</p>
-    {% endif %}
-
-    <!-- Acciones -->
-    <div class="flex gap-6 text-gray-500 text-sm mt-4">
-        <button class="flex items-center gap-1 hover:text-blue-500 transition">
-            💬 {{ post.comments.count }}
-        </button>
-        <button class="flex items-center gap-1 hover:text-green-500 transition">
-            🔁 {{ post.shares.count }}
-        </button>
-        <button class="flex items-center gap-1 hover:text-pink-500 transition">
-            ❤️ {{ post.likes.count }}
-        </button>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100">
+        {{ post.user.username }}
+      </p>
+      <p class="text-gray-500 text-sm">{{ post.created_at|timesince }} atrás</p>
     </div>
+  </div>
 
+  <!-- Título y descripción -->
+  <h1 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+    {{ post.title }}
+  </h1>
+  <p class="text-gray-700 dark:text-gray-300 mb-4">{{ post.description }}</p>
+
+  <!-- Imagen -->
+  {% if post.image %}
+  <img
+    src="{{ post.image.url }}"
+    alt="{{ post.title }}"
+    class="w-full rounded-lg mb-4 object-cover"
+  />
+  {% else %}
+  <p class="text-gray-400 italic text-sm">No hay imagen disponible</p>
+  {% endif %}
+
+  <!-- Acciones -->
+  <div class="flex gap-6 text-gray-500 text-sm mt-4">
+    <button class="flex items-center gap-1 hover:text-blue-500">
+      <i class="fa-solid fa-comments"></i>
+      <span>{{ post.comments.count }}</span>
+    </button>
+    <button class="flex items-center gap-1 hover:text-green-500">
+      <i class="fa-solid fa-share"></i>
+      <span>{{ post.shares.count }}</span>
+    </button>
+    <button class="flex items-center gap-1 hover:text-pink-500">
+      <i class="fa-solid fa-heart"></i>
+      <span>{{ post.likes.count }}</span>
+    </button>
+  </div>
 </div>
 {% endblock %}
